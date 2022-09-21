@@ -1,5 +1,5 @@
-import React from "react";
-import {FlatList, StyleSheet, View} from "react-native";
+import React, {useEffect} from "react";
+import {BackHandler, FlatList, StyleSheet, View} from "react-native";
 import WebView from "react-native-webview";
 import {GAP, PADDING, WIDTH} from "../../constants/constants";
 import {WebViewProps} from "../../types/types";
@@ -7,7 +7,9 @@ import {data} from "../../data/data";
 
 
 export const WebViewScreen = ({route}: WebViewProps) => {
-   
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
+    })
     return (
         <View style={styles.container}>
             <WebView source={{uri: route.params.url}}/>

@@ -1,6 +1,6 @@
-import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {CompositeScreenProps, NavigationProp, useNavigation} from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-
+import { StackScreenProps } from "@react-navigation/stack";
 
 export type RootStackParamList={
     Start:undefined

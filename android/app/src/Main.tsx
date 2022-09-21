@@ -7,6 +7,7 @@ import {WebViewScreen} from "./screens/WebViewScreen/WebViewScreen";
 import {HomeScreen} from "./screens/Home/HomeScreen";
 import {StartScreen} from "./screens/Home/StartScreen";
 
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Main() {
@@ -15,12 +16,12 @@ export default function Main() {
         <NavigationContainer>
             <View style={styles.container}>
                 <Stack.Navigator>
-                    <Stack.Screen name="Start" options={ {headerShown: false}} component={StartScreen} />
-                    <Stack.Screen name="Home" options={{headerBackVisible:false}} component={HomeScreen} />
-                    <Stack.Screen name="WebView" options={{headerBackVisible:false}}  component={WebViewScreen}/>
+                    <Stack.Screen name="Start" options={{headerShown: false}} component={StartScreen}/>
+                    <Stack.Screen name="Home" options={{headerBackVisible:false}} component={HomeScreen}/>
+                    <Stack.Screen name="WebView" options={{headerBackVisible:false}} component={WebViewScreen}/>
                 </Stack.Navigator>
             </View>
-         </NavigationContainer>
+        </NavigationContainer>
     )
 }
 

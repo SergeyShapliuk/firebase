@@ -1,11 +1,13 @@
-import React from "react";
-import {FlatList, Text, View, StyleSheet, Image} from "react-native";
+import React, {useEffect} from "react";
+import {FlatList, Text, View, StyleSheet, Image, BackHandler} from "react-native";
 import {data} from "../../data/data";
 import {GAP, PADDING, WIDTH} from "../../constants/constants";
 
 
 export function HomeScreen() {
-
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
+    })
     return (
         <View style={styles.container}>
             <FlatList data={data}

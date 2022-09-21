@@ -1,4 +1,4 @@
-package com.firebase.newarchitecture.components;
+package dihkerbert.sons.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

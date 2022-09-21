@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "962008768463",
-    "project_id": "fir-b20c4",
-    "storage_bucket": "fir-b20c4.appspot.com"
+    "project_number": "85988850501",
+    "project_id": "hvkfdvdf",
+    "storage_bucket": "hvkfdvdf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:962008768463:android:40b37053318e9d932efcba",
+        "mobilesdk_app_id": "1:85988850501:android:7377c88f77643349a41c2c",
         "android_client_info": {
-          "package_name": "com.firebase"
+          "package_name": "dihkerbert.sons"
         }
       },
       "oauth_client": [
         {
-          "client_id": "962008768463-ap2bsi39jls2o5n4skj945bjpejgv444.apps.googleusercontent.com",
+          "client_id": "85988850501-qu3v8304nub93v72s4fufqdk3pmhbhe9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2RGVspPMevW0pSudJZGOn4ic90jIMyFQ"
+          "current_key": "AIzaSyARFPPVw5P2fqBX6TZbedHP_kf3TQMD8iQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "962008768463-ap2bsi39jls2o5n4skj945bjpejgv444.apps.googleusercontent.com",
+              "client_id": "85988850501-qu3v8304nub93v72s4fufqdk3pmhbhe9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

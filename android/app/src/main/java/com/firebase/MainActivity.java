@@ -1,4 +1,4 @@
-package com.firebase;
+package dihkerbert.sons;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
