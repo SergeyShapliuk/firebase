@@ -17,8 +17,8 @@ export default function Main() {
             <View style={styles.container}>
                 <Stack.Navigator>
                     <Stack.Screen name="Start" options={{headerShown: false}} component={StartScreen}/>
-                    <Stack.Screen name="Home" options={{headerBackVisible:false}} component={HomeScreen}/>
-                    <Stack.Screen name="WebView" options={{headerBackVisible:false}} component={WebViewScreen}/>
+                    <Stack.Screen name="Home" options={{headerShown:false}} component={HomeScreen}/>
+                    <Stack.Screen name="WebView" options={{headerShown:false}} component={WebViewScreen}/>
                 </Stack.Navigator>
             </View>
         </NavigationContainer>

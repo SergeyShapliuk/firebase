@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useAppNavigation} from "../../types/types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import remoteConfig from "@react-native-firebase/remote-config";
 import DeviceInfo from "react-native-device-info";
 import {
     ActivityIndicator,
@@ -13,39 +12,41 @@ import {
     Text,
     View
 } from "react-native";
+import remoteConfig from "@react-native-firebase/remote-config";
+import {HomeScreen} from "./HomeScreen";
 
-const wait = (timeout: any) => {
-    return new Promise((resolve: any) => setTimeout(resolve, timeout));
-}
 
 export function StartScreen() {
-    const [refreshing, setRefreshing] = React.useState(false);
-    const onRefresh = React.useCallback(() => {
-        setRefreshing(true);
-        navigation.navigate("Home")
-        wait(2000).then(() => setRefreshing(false));
-    }, []);
-    
+
     const navigation = useAppNavigation()
 
     useEffect(() => {
-        remoteConfig()
-            .setDefaults({
-                url: ""
-            })
-        remoteConfig().fetch(0)
+        // const sec:any=setInterval(()=>{
+        //          const rss = remoteConfig().getValue("url").asString()
+        //          console.log("rss",rss)
+        //      return clearInterval(sec)
+        //  },100)
+        remoteConfig().setConfigSettings({
+            minimumFetchIntervalMillis: 300,
+            fetchTimeMillis: 100
+        })
+        remoteConfig().setDefaults({
+            url: "https://www.google.com/"
+        })
             .then(() => remoteConfig().fetchAndActivate())
-        getLocalStorage().then(res => start(res))
-
+            .then((fetchedRemotely) => {
+            })
+        getLocalStorage().then(res => start(""))
     }, [])
-    const start = (value: string | null | undefined) => {
 
+    const start = (value: string | null | undefined) => {
         if (!value) {
             loadFire()
         } else {
             return navigation.navigate("WebView", {url: value})
         }
     }
+
     const localStorage = async (value: string) => {
         await AsyncStorage.setItem("url", value)
     }
@@ -57,7 +58,7 @@ export function StartScreen() {
         const getUrl = remoteConfig().getValue("url").asString()
         const brandDevice = DeviceInfo.getBrand()
         const simDevice = DeviceInfo.getCarrierSync()
-        if (getUrl === "" || brandDevice === "google" || !simDevice) {
+        if (!getUrl || brandDevice === "google" || !simDevice) {
             navigation.navigate("Home")
         } else {
             localStorage(getUrl)
@@ -66,19 +67,8 @@ export function StartScreen() {
     }
 
     return (
-        <SafeAreaView style={{flex: 1, justifyContent: "center", alignSelf: "center"}}>
-            <ScrollView
-                contentContainerStyle={styles.scrollView}
-                refreshControl={
-                    <RefreshControl
-                        refreshing={refreshing}
-                        onRefresh={onRefresh}
-                    />
-                }
-            >
-                <Text>Something went wrong pull down</Text>
-            </ScrollView>
-        </SafeAreaView>
+        <>
+        </>
     )
 }
 
