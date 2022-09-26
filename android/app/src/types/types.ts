@@ -4,7 +4,13 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 export type RootStackParamList={
     Start:undefined
-    Home:undefined
+    HomeList:undefined
+    HomeItem: { 
+        id:number
+        title:string
+        photo:string
+        description:string
+    }
     WebView: {
         url:string
     }
@@ -12,6 +18,7 @@ export type RootStackParamList={
 
 export type UseNavigationType=NavigationProp<RootStackParamList>
 
+export type HomeItemProps=NativeStackScreenProps<RootStackParamList,"HomeItem">
 export type WebViewProps=NativeStackScreenProps<RootStackParamList,"WebView">
 
 export const useAppNavigation=()=>useNavigation<UseNavigationType>()

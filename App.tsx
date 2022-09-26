@@ -1,10 +1,14 @@
-import React from "react";
-import {StyleSheet, View} from "react-native";
+import React, { useEffect } from "react";
+import {BackHandler, StyleSheet, View} from "react-native";
 import Main from "./android/app/src/Main";
+import SplashScreen from 'react-native-splash-screen';
 
 
-const App = () => {
-
+ const App = () => {
+     useEffect(()=>{
+         setTimeout(() => SplashScreen.hide() , 2000);
+      
+     },[])
     return (
 
         <View style={styles.container}>
@@ -16,8 +20,6 @@ const App = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
     },
 });
-
 export default App;

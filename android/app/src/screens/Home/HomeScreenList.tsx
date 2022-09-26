@@ -1,24 +1,33 @@
 import React, {useEffect} from "react";
-import {FlatList, Text, View, StyleSheet, Image, BackHandler} from "react-native";
+import {FlatList, Text, View, StyleSheet, Image, BackHandler, TouchableOpacity} from "react-native";
 import {data} from "../../data/data";
 import {GAP, PADDING, WIDTH} from "../../constants/constants";
+import {useAppNavigation} from "../../types/types";
 
 
-export function HomeScreen() {
-    useEffect(() => {
-        const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
-    })
+export function HomeScreenList() {
+    const navigation = useAppNavigation()
+    
     return (
         <View style={styles.container}>
             <FlatList data={data}
                       renderItem={({item}) => {
-                          return <View style={styles.item}>
+                          return <TouchableOpacity onPress={() => {
+                              navigation.navigate("HomeItem", {
+                                  id: item.id,
+                                  title: item.title,
+                                  description: item.description,
+                                  photo: item.photo
+                              })
+                          }
+                          }><View style={styles.item}>
                               <Image style={{width: 130, height: 100}} source={{uri: item.photo}}/>
                               <Text style={styles.text} numberOfLines={7}>
                                   <Text style={styles.title}>{item.title}</Text>
                                   <Text>{"\n"}{item.description}</Text>
                               </Text>
                           </View>
+                          </TouchableOpacity>
                       }}
                       keyExtractor={(item, index) => `${item.id}.${index}`}
             />
